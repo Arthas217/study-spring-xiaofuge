@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>spring-step-01</module>
+        <module>spring-step-02</module>
     </modules>
 
     <properties>
