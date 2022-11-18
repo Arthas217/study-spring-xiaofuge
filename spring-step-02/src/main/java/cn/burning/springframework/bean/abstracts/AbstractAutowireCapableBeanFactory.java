@@ -6,7 +6,7 @@ import cn.burning.springframework.exception.BeansException;
 /**
  * @Author 会游泳的蚂蚁
  * @Description: 只需要关心属于自己相关内容--实现默认bean创建的抽象bean工厂超类
- * 自动的有能力的BeanFactory
+ * 类名的翻译：自动的有能力的BeanFactory，实例化Bean类，把Bean的实例化操作放到容器中处理
  * @Date 2022/11/17 23:37
  */
 public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory {
@@ -22,7 +22,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
     protected Object createBean(String beanName, BeanDefinition beanDefinition) {
         Object bean;
         try {
-            // 获取Bean实例对象
+            // 获取Bean实例对象， 埋下一个坑，有构造函数入参的对象怎么处理
             bean = beanDefinition.getBeanClass().newInstance();
         } catch (InstantiationException | IllegalAccessException e) {
             throw new BeansException("create bean failed", e);
