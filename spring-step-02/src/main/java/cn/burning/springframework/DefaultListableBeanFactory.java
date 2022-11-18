@@ -37,7 +37,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
     /**
      * 获取bean定义
      * 只需要关心属于自己相关内容，获取bean定义（基类的基类）---实现了抽象方法1
-     * @param beanName
+     * @param beanName  Bean 名称
      * @return
      */
     @Override
