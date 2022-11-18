@@ -6,6 +6,7 @@ import cn.burning.springframework.exception.BeansException;
 /**
  * @Author 会游泳的蚂蚁
  * @Description: 只需要关心属于自己相关内容--实现默认bean创建的抽象bean工厂超类
+ * 自动的有能力的BeanFactory
  * @Date 2022/11/17 23:37
  */
 public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory {
