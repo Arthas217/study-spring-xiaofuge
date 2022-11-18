@@ -7,6 +7,7 @@ import cn.burning.springframework.exception.BeansException;
  * @Author 会游泳的蚂蚁
  * @Description: 只需要关心属于自己相关内容--实现默认bean创建的抽象bean工厂超类
  * 类名的翻译：自动的有能力的BeanFactory，实例化Bean类，把Bean的实例化操作放到容器中处理
+ * Spring Bean容器的实现类，不同特性类的使用就可以非常好的隔离开类的功能职责和作用范围。
  * @Date 2022/11/17 23:37
  */
 public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory {
