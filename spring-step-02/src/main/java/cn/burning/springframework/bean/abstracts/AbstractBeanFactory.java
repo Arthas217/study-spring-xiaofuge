@@ -1,4 +1,9 @@
-package cn.burning.springframework;
+package cn.burning.springframework.bean.abstracts;
+
+import cn.burning.springframework.bean.impl.DefaultSingletonBeanRegistry;
+import cn.burning.springframework.bean.interfaces.BeanFactory;
+import cn.burning.springframework.bean.support.BeanDefinition;
+import cn.burning.springframework.exception.BeansException;
 
 /**
  * @Author 会游泳的蚂蚁
@@ -6,7 +11,7 @@ package cn.burning.springframework;
  * 定义模板方法  统一收口通用核心方法的调用逻辑和标准定义,控制了后续的实现者不用关心调用逻辑,按照统一方式执行(模板模式的设计方式)
  * @Date 2022/11/17 21:43
  */
-public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements BeanFactory{
+public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements BeanFactory {
 
     /**
      * 返回Bean的实例对象

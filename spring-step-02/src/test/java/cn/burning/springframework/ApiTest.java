@@ -1,5 +1,6 @@
 package cn.burning.springframework;
 
+import cn.burning.springframework.bean.support.BeanDefinition;
 import org.junit.Test;
 
 /**

@@ -1,4 +1,6 @@
-package cn.burning.springframework;
+package cn.burning.springframework.bean.impl;
+
+import cn.burning.springframework.bean.interfaces.SingletonBeanRegistry;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,7 +10,7 @@ import java.util.Map;
  * @Description: 通用的单例bean注册表实现类
  * @Date 2022/11/17 23:13
  */
-public class DefaultSingletonBeanRegistry implements SingletonBeanRegistry{
+public class DefaultSingletonBeanRegistry implements SingletonBeanRegistry {
 
     private Map<String, Object> singletonObjects = new HashMap<>();
 

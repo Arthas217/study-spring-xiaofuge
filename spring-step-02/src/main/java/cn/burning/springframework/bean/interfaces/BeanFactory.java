@@ -1,4 +1,6 @@
-package cn.burning.springframework;
+package cn.burning.springframework.bean.interfaces;
+
+import cn.burning.springframework.exception.BeansException;
 
 /**
  * @Author 会游泳的蚂蚁

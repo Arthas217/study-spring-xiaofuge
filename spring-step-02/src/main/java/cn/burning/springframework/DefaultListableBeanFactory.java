@@ -1,5 +1,10 @@
 package cn.burning.springframework;
 
+import cn.burning.springframework.bean.abstracts.AbstractAutowireCapableBeanFactory;
+import cn.burning.springframework.bean.interfaces.BeanDefinitionRegistry;
+import cn.burning.springframework.bean.support.BeanDefinition;
+import cn.burning.springframework.exception.BeansException;
+
 import java.util.HashMap;
 import java.util.Map;
 

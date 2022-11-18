@@ -1,4 +1,4 @@
-package cn.burning.springframework;
+package cn.burning.springframework.bean.interfaces;
 
 /**
  * @Author 会游泳的蚂蚁
