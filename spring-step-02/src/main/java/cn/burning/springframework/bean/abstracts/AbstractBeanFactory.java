@@ -21,7 +21,7 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
      */
     @Override
     public Object getBean(String name) throws BeansException {
-        //通过继承DefaultSingletonBeanRegistry得到
+        //通过继承DefaultSingletonBeanRegistry 具备了单例Bean的注册功能。
         Object singleton = getSingleton(name);
         if (singleton != null) {
             return singleton;
