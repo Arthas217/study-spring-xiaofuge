@@ -42,7 +42,7 @@ public class ApiTest {
     /**
      * UserService 无默认无参构造函数
      * 报错java.lang.NoSuchMethodException: cn.burning.springframework.UserService.<init>()
-     * 添加无参构造函数后 输出为什么为null？--- UserService中的toString方法有影响
+     * 添加无参构造函数后 输出为什么为null--- UserService中的toString方法有影响
      * @throws IllegalAccessException
      * @throws InstantiationException
      */
