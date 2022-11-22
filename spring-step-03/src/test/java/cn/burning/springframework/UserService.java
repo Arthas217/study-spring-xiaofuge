@@ -7,6 +7,8 @@ public class UserService {
 
     private String name;
 
+    public UserService() {
+    }
 
     /**
      * add-03
@@ -27,4 +29,10 @@ public class UserService {
         return sb.toString();
     }
 
+//    @Override
+//    public String toString() {
+//        return "UserService{" +
+//                "name='" + name + '\'' +
+//                '}';
+//    }
 }

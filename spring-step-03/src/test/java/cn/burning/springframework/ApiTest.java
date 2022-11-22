@@ -39,11 +39,18 @@ public class ApiTest {
         System.out.println(obj);
     }
 
-    //TODO 为什么会报错
+    /**
+     * UserService 无默认无参构造函数
+     * 报错java.lang.NoSuchMethodException: cn.burning.springframework.UserService.<init>()
+     * 添加无参构造函数后 输出为什么为null？--- UserService中的toString方法有影响
+     * @throws IllegalAccessException
+     * @throws InstantiationException
+     */
     @Test
     public void testNewInstance() throws IllegalAccessException, InstantiationException {
         UserService userService = UserService.class.newInstance();
         System.out.println(userService);
+        userService.queryUserInfo();
     }
 
     @Test
@@ -58,7 +65,7 @@ public class ApiTest {
     public void testParameterTypes() throws Exception {
         Class<UserService> beanClass = UserService.class;
         Constructor<?>[] declaredConstructors = beanClass.getDeclaredConstructors();
-        Constructor<?> constructor = declaredConstructors[0];
+        Constructor<?> constructor = declaredConstructors[1];
         Constructor<UserService> declaredConstructor = beanClass.getDeclaredConstructor(constructor.getParameterTypes());
         UserService userService = declaredConstructor.newInstance("会游泳的蚂蚁");
         System.out.println(userService);
