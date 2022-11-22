@@ -20,7 +20,6 @@ import java.lang.reflect.Constructor;
  */
 public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory {
 
-
     /**
      * 创建cglib策略属性类
      */
@@ -93,14 +92,15 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
         Class<?> beanClass = beanDefinition.getBeanClass();
         Constructor<?>[] constructors = beanClass.getDeclaredConstructors();
         for (Constructor ctor : constructors) {
-            //循环比对出构造函数集合与入参信息args的匹配情况,这里简单只是一个数量对比，实际Spring源码中还需要比对入参类型，否则相同数量不同入参类型的情况，就会抛异常了。
+            //循环比对出构造函数集合与入参信息args的匹配情况,这里简单只是一个数量对比
+            //实际Spring源码中还需要比对入参类型，否则相同数量不同入参类型的情况，就会抛异常了。
             if (null != args && ctor.getParameterTypes().length == args.length) {
                 constructorToUse = ctor;
                 break;
             }
         }
         // cglib策略调用，创建对象的实例化
-        return getInstantiationStrategy().instantiate(beanDefinition,beanName,constructorToUse,args);
+        return getInstantiationStrategy().instantiate(beanDefinition, beanName, constructorToUse, args);
     }
 
 
