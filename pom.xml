@@ -12,6 +12,7 @@
         <module>spring-step-01</module>
         <module>spring-step-02</module>
         <module>spring-step-03</module>
+        <module>spring-step-04</module>
     </modules>
 
     <properties>
@@ -25,6 +26,18 @@
             <artifactId>junit</artifactId>
             <version>4.11</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.5.0</version>
         </dependency>
     </dependencies>
 
