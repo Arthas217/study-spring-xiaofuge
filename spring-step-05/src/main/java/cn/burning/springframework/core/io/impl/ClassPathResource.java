@@ -30,6 +30,7 @@ public class ClassPathResource implements Resource {
     public ClassPathResource(String path, ClassLoader classLoader) {
         Assert.notNull(path, "Path must not be null");
         this.path = path;
+        //使用hutool工具获取类加载器
         this.classLoader = classLoader != null ? classLoader : ClassUtil.getClassLoader();
 //        this.classLoader = classLoader != null ? classLoader : ClassUtils.getDefaultClassLoader();
     }

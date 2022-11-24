@@ -26,6 +26,19 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
         return doGetBean(name, args);
     }
 
+    /**
+     * add-05 返回指定泛型的对象 实现BeanFactory接口
+     * @param name  要检索的bean的名称
+     * @param requiredType 类型
+     * @param <T>
+     * @return
+     * @throws BeansException
+     */
+    @Override
+    public <T> T getBean(String name, Class<T> requiredType) throws BeansException {
+        return (T) getBean(name);
+    }
+
 
     protected <T> T doGetBean(final String name, final Object[] args) {
         //通过继承DefaultSingletonBeanRegistry 具备了单例Bean的注册功能。

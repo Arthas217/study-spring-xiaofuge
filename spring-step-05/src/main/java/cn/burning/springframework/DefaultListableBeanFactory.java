@@ -4,6 +4,7 @@ import cn.burning.springframework.bean.abstracts.AbstractAutowireCapableBeanFact
 import cn.burning.springframework.bean.interfaces.BeanDefinitionRegistry;
 import cn.burning.springframework.bean.support.BeanDefinition;
 import cn.burning.springframework.exception.BeansException;
+import cn.burning.springframework.todo.ListableBeanFactory;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +18,7 @@ import java.util.Map;
  * 此类中涉及的BeanDefinitionRegistry接口定义了注册，AbstractBeanFactory抽象类定义了获取，都集中在beanDefinitionMap里
  * @Date 2022/11/17 22:41
  */
-public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory implements BeanDefinitionRegistry {
+public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory implements BeanDefinitionRegistry, ListableBeanFactory {
 
     /**
      * spring bean容器  且依赖BeanDefinition
@@ -59,4 +60,35 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
     public boolean containsBeanDefinition(String beanName) {
         return beanDefinitionMap.containsKey(beanName);
     }
+
+    /**
+     * add-05 实现ListableBeanFactory接口
+     * @param type
+     * @param <T>
+     * @return
+     * @throws BeansException
+     */
+    @Override
+    public <T> Map<String, T> getBeansOfType(Class<T> type) throws BeansException {
+        Map<String, T> result = new HashMap<>();
+        beanDefinitionMap.forEach((beanName, beanDefinition) -> {
+            Class beanClass = beanDefinition.getBeanClass();
+            //确定此class对象表示的类或接口是否与指定class参数表示的类或接口相同，或者是类或接口的超类或超接口。
+            if (type.isAssignableFrom(beanClass)) {
+                // getBean(beanName, type)第二个参数没有用上
+                result.put(beanName, (T) getBean(beanName, type));
+            }
+        });
+        return result;
+    }
+
+    /**
+     * add-05 实现ListableBeanFactory接口
+     * @return
+     */
+    @Override
+    public String[] getBeanDefinitionNames() {
+        return beanDefinitionMap.keySet().toArray(new String[0]);
+    }
+
 }

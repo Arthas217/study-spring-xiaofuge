@@ -3,6 +3,7 @@ package cn.burning.springframework.bean.abstracts;
 import cn.burning.springframework.bean.interfaces.BeanDefinitionReader;
 import cn.burning.springframework.bean.interfaces.BeanDefinitionRegistry;
 import cn.burning.springframework.core.io.ResourceLoader;
+import cn.burning.springframework.core.io.impl.DefaultResourceLoader;
 
 /**
  * @Author 会游泳的蚂蚁
@@ -22,7 +23,8 @@ public abstract class AbstractBeanDefinitionReader implements BeanDefinitionRead
     private final BeanDefinitionRegistry registry;
 
     public AbstractBeanDefinitionReader(BeanDefinitionRegistry registry) {
-        this.registry = registry;
+        // 注意resourceLoader空指针异常
+        this(registry, new DefaultResourceLoader());
     }
 
     public AbstractBeanDefinitionReader(BeanDefinitionRegistry registry, ResourceLoader resourceLoader) {
