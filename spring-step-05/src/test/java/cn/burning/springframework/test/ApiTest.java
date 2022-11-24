@@ -45,14 +45,13 @@ public class ApiTest {
         System.out.println(content);
     }
 
-//    @Test
-//    public void test_url() throws IOException {
-//        Resource resource = resourceLoader.getResource("https://github.com/Arthas217/study-spring-xiaofuge/tree/master/spring-step-05/important.properties");
-//        InputStream inputStream = resource.getInputStream();
-//        String content = IoUtil.readUtf8(inputStream);
-//        System.out.println(content);
-//    }
-
+    @Test
+    public void test_url() throws IOException {
+        Resource resource = resourceLoader.getResource("https://github.com/Arthas217/study-spring-xiaofuge/tree/master/spring-step-05/important.properties");
+        InputStream inputStream = resource.getInputStream();
+        String content = IoUtil.readUtf8(inputStream);
+        System.out.println(content);
+    }
 
     /**
      * 通过xml资源加载、解析、注册bean到容器中
