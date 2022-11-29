@@ -16,7 +16,7 @@ import java.util.Map;
  * 所以有时候你会看到一些类的强转，调用某些方法（例如此类中createBean方法），也是因为你强转的类实现接口或继承了某些类。
  *
  * 此类中涉及的BeanDefinitionRegistry接口定义了注册，AbstractBeanFactory抽象类定义了获取，都集中在beanDefinitionMap里
- * @Date 2022/11/17 22:41
+ * @Date 2022/11/17 22:41  add-05  实现ListableBeanFactory接口
  */
 public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory implements BeanDefinitionRegistry, ListableBeanFactory {
 
