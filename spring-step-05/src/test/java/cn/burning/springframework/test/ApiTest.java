@@ -47,7 +47,7 @@ public class ApiTest {
 
     @Test
     public void test_url() throws IOException {
-        Resource resource = resourceLoader.getResource("https://github.com/Arthas217/study-spring-xiaofuge/tree/master/spring-step-05/important.properties");
+        Resource resource = resourceLoader.getResource("https://github.com/Arthas217/study-spring-xiaofuge/blob/master/spring-step-05/src/main/resources/important.properties");
         InputStream inputStream = resource.getInputStream();
         String content = IoUtil.readUtf8(inputStream);
         System.out.println(content);
