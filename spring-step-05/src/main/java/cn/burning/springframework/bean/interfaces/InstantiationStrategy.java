@@ -7,7 +7,7 @@ import java.lang.reflect.Constructor;
 
 /**
  * @Author 会游泳的蚂蚁
- * @Description: Bean实例化策略（接口）
+ * @Description: Bean实例化策略
  * @Date 2022/11/18 11:19
  */
 public interface InstantiationStrategy {

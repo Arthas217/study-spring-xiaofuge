@@ -25,9 +25,9 @@ public class PropertyValues {
     }
 
     public PropertyValue getPropertyValueByName(String propertyName) {
-        for (PropertyValue pv : this.propertyValueList) {
-            if (pv.getName().equals(propertyName)) {
-                return pv;
+        for (PropertyValue propertyValue : this.propertyValueList) {
+            if (propertyValue.getName().equals(propertyName)) {
+                return propertyValue;
             }
         }
         return null;

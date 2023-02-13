@@ -2,7 +2,7 @@ package cn.burning.springframework.bean.support;
 
 /**
  * @Author 会游泳的蚂蚁
- * @Description: 属性信息
+ * @Description: 属性实体
  * @Date 2022/11/22 16:35
  */
 public class PropertyValue {

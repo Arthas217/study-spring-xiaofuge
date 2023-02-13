@@ -54,6 +54,8 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
 
     /**
      * 抽象方法1
+     * 通过bean名称，获取bean定义
+     * 在子类DefaultListableBeanFactory实现
      * @param beanName
      * @return
      */
@@ -61,7 +63,8 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
 
 
     /**
-     * add-03 抽象方法2
+     * add-03 抽象方法2 创建bean（实例化）
+     * 在子类AbstractAutowireCapableBeanFactory实现
      * @param beanName
      * @param beanDefinition
      * @return

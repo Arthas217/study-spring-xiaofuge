@@ -10,7 +10,7 @@ import java.lang.reflect.Constructor;
 
 /**
  * @Author 会游泳的蚂蚁
- * @Description: Cglib 实例化策略
+ * @Description: Cglib策略实例化
  * @Date 2022/11/18 11:40
  */
 public class CglibSubclassingInstantiationStrategy implements InstantiationStrategy {

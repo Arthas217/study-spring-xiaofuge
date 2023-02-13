@@ -60,10 +60,12 @@ public class ApiTest {
     public void test_xml_bean() {
         // 1.初始化BeanFactory (实现了BeanDefinitionRegistry)
         DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
+
         // 2. 读取配置文件 &&注册Bean
         // 替换step-04测试中 UserDao注册、UserService注册 && 设置属性[uId、userDao]、UserService注入bean
         XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(beanFactory);
         reader.loadBeanDefinitions("classpath:spring.xml");
+
         // 3. 获取Bean对象   替换step-04测试中 UserService 获取bean
         UserService userService = beanFactory.getBean("userService", UserService.class);
         // 4. 调用方法

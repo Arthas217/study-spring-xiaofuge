@@ -7,7 +7,7 @@ import java.util.Map;
 
 /**
  * @Author 会游泳的蚂蚁
- * @Description: 通用的单例bean注册表（实现类）
+ * @Description: 通用的单例bean注册表
  * @Date 2022/11/17 23:13
  */
 public class DefaultSingletonBeanRegistry implements SingletonBeanRegistry {

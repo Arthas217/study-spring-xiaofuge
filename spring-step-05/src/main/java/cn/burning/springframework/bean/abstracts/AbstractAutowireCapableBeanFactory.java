@@ -34,7 +34,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
     }
 
     /**
-     * 实现了Bean的实例化操作
+     * 实现Bean的实例化操作
      * @param beanName
      * @param beanDefinition
      * @param args
@@ -44,14 +44,14 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
     protected Object createBean(String beanName, BeanDefinition beanDefinition, Object[] args) {
         Object bean;
         try {
-            // 获取Bean实例对象处理
+            // 创建Bean实例对象
             bean = createBeanInstance(beanDefinition, beanName, args);
             // add-04  属性添加、给Bean填充属性
             applyPropertyValues(beanDefinition, beanName, bean);
         } catch (Exception e) {
             throw new BeansException("create bean failed", e);
         }
-        //继承父类的父类
+        //注册单例bean
         registerSingleton(beanName, bean);
         return bean;
     }
@@ -100,7 +100,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
             }
         }
         // cglib策略调用，创建对象的实例化
-        return getInstantiationStrategy().instantiate(beanDefinition, beanName, constructorToUse, args);
+        return this.getInstantiationStrategy().instantiate(beanDefinition, beanName, constructorToUse, args);
     }
 
 

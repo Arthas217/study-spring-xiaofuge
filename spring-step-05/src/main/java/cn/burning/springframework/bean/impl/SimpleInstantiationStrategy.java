@@ -9,7 +9,7 @@ import java.lang.reflect.InvocationTargetException;
 
 /**
  * @Author 会游泳的蚂蚁
- * @Description: JDK实例化策略
+ * @Description: JDK策略实例化
  * @Date 2022/11/18 11:30
  */
 public class SimpleInstantiationStrategy implements InstantiationStrategy {

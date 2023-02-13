@@ -5,7 +5,7 @@ import java.io.InputStream;
 
 /**
  * @Author 会游泳的蚂蚁
- * @Description: 资源接口  add-05
+ * @Description: 资源 add-05
  * @Date 2022/11/22 21:54
  */
 public interface Resource {

@@ -5,7 +5,7 @@ import cn.burning.springframework.exception.BeansException;
 
 /**
  * @Author 会游泳的蚂蚁
- * @Description: Bean工厂（接口）
+ * @Description: Bean工厂
  * @Date 2022/11/17 17:29
  */
 public interface BeanFactory {

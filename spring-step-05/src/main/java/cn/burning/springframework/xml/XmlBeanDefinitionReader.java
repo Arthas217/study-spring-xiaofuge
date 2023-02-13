@@ -19,13 +19,14 @@ import java.io.InputStream;
 
 /**
  * @Author 会游泳的蚂蚁
- * @Description: 用于XML方式Bean定义的Bean定义读取核心类
+ * @Description: XML方式Bean定义读取,核心类
  * @Date 2022/11/23 22:56
  */
 public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 
     /**
-     * 继承基类  依赖BeanDefinitionRegistry
+     * 构造函数 + bean定义注册
+     * 依赖BeanDefinitionRegistry
      * @param registry
      */
     public XmlBeanDefinitionReader(BeanDefinitionRegistry registry) {
@@ -33,7 +34,8 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
     }
 
     /**
-     * 继承基类  依赖BeanDefinitionRegistry、ResourceLoader
+     * 构造函数 + bean定义注册 + 资源加载
+     * 依赖BeanDefinitionRegistry、ResourceLoader
      * @param registry
      * @param resourceLoader
      */
@@ -42,7 +44,7 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
     }
 
     /**
-     * 处理资源加载、主要负责解析 xml
+     * 核心处理资源加载、主要负责解析xml
      * @param resource
      * @throws BeansException
      */
@@ -60,18 +62,19 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
     }
 
     @Override
+    public void loadBeanDefinitions(String location) throws BeansException {
+        //依赖加载ResourceLoader
+        ResourceLoader resourceLoader = super.getResourceLoader();
+        Resource resource = resourceLoader.getResource(location);
+        loadBeanDefinitions(resource);
+    }
+
+
+    @Override
     public void loadBeanDefinitions(Resource... resources) throws BeansException {
         for (Resource resource : resources) {
             loadBeanDefinitions(resource);
         }
-    }
-
-    @Override
-    public void loadBeanDefinitions(String location) throws BeansException {
-        //依赖加载ResourceLoader
-        ResourceLoader resourceLoader = getResourceLoader();
-        Resource resource = resourceLoader.getResource(location);
-        loadBeanDefinitions(resource);
     }
 
     /**
@@ -119,12 +122,12 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
                 beanDefinition.getPropertyValues().addPropertyValue(propertyValue);
             }
             // 通过BeanDefinitionRegistry判断是否为重复注册
-            if (getRegistry().containsBeanDefinition(beanName)) {
+            if (super.getRegistry().containsBeanDefinition(beanName)) {
                 throw new BeansException("Duplicate beanName[" + beanName + "] is not allowed");
             }
             // 通过BeanDefinitionRegistry注册BeanDefinition
             // 把读取出来的配置信息，创建成BeanDefinition以及PropertyValue，最终把完整的Bean定义内容注册到Bean容器
-            getRegistry().registerBeanDefinition(beanName, beanDefinition);
+            super.getRegistry().registerBeanDefinition(beanName, beanDefinition);
         }
     }
 }

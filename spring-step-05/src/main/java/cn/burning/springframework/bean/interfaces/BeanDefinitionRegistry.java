@@ -5,7 +5,7 @@ import cn.burning.springframework.bean.support.BeanDefinition;
 
 /**
  * @Author 会游泳的蚂蚁
- * @Description: Bean 定义注册（接口）
+ * @Description: Bean定义注册
  * @Date 2022/11/17 21:58
  */
 public interface BeanDefinitionRegistry {

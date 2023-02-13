@@ -6,39 +6,45 @@ import cn.burning.springframework.exception.BeansException;
 
 /**
  * @Author 会游泳的蚂蚁
- * @Description: bean定义读取简单接口  add-05
- * 前面两个方法（加载和注册），用于提供给后面三个加载Bean定义的方法
- * 前面两个方法的实现会包装到抽象类中，以免污染具体的接口实现方法。
+ * @Description: bean定义读取  add-05
+ * 前面两个方法（加载和注册），前面两个方法的实现会包装到抽象类AbstractBeanDefinitionReader中，以免污染具体的接口实现方法。
+ * 用于提供给后面三个加载Bean定义的方法
+ *
  * @Date 2022/11/23 22:17
  */
 public interface BeanDefinitionReader {
 
     /**
-     * 获取加载资源
+     * 获取资源加载器
      */
     ResourceLoader getResourceLoader();
 
     /**
-     * Bean定义注册
+     * 获取Bean定义注册器
      */
     BeanDefinitionRegistry getRegistry();
 
 
     /**
-     * 通过资源加载Bean定义（加载、解析、注册到spring容器），所以实现类中要依赖加载和注册
+     * 通过资源处理（加载、解析、注册到spring容器）
      * @param resource
      * @throws BeansException
      */
     void loadBeanDefinitions(Resource resource) throws BeansException;
 
-    void loadBeanDefinitions(Resource... resources) throws BeansException;
-
     /**
-     * 通过资源加载Bean定义（加载、解析、注册到spring容器）实现类中要依赖加载
+     * 通过location处理（加载、解析、注册到spring容器）
      * @param location
      * @throws BeansException
      */
     void loadBeanDefinitions(String location) throws BeansException;
+
+    /**
+     * 多个资源
+     * @param resources
+     * @throws BeansException
+     */
+    void loadBeanDefinitions(Resource... resources) throws BeansException;
 
 
 }

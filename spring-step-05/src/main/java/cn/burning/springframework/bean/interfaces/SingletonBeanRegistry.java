@@ -2,7 +2,7 @@ package cn.burning.springframework.bean.interfaces;
 
 /**
  * @Author 会游泳的蚂蚁
- * @Description: 单例Bean对象注册（表接口）
+ * @Description: 单例Bean对象注册表
  * @Date 2022/11/17 23:04
  */
 public interface SingletonBeanRegistry {

@@ -10,7 +10,8 @@ public class BeanDefinition {
     private Class beanClass;
 
     /**
-     * 属性集合 add-04
+     * add-04
+     * bean属性集合
      */
     private PropertyValues propertyValues;
 
@@ -21,7 +22,7 @@ public class BeanDefinition {
     }
 
     /**
-     * add-04 把属性一定交给 Bean的构造函数
+     * add-04 把属性一定交给Bean的构造函数
      * @param beanClass
      * @param propertyValues
      */
