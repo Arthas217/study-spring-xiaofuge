@@ -1,6 +1,6 @@
 package cn.burning.springframework.context.support;
 
-import cn.burning.springframework.DefaultListableBeanFactory;
+import cn.burning.springframework.bean.DefaultListableBeanFactory;
 import cn.burning.springframework.exception.BeansException;
 import cn.burning.springframework.todo.ConfigurableListableBeanFactory;
 

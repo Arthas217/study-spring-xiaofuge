@@ -1,5 +1,6 @@
 package cn.burning.springframework.todo;
 
+import cn.burning.springframework.bean.interfaces.AutowireCapableBeanFactory;
 import cn.burning.springframework.bean.support.BeanDefinition;
 import cn.burning.springframework.exception.BeansException;
 

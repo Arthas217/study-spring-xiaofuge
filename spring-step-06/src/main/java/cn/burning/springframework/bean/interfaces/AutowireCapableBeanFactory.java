@@ -1,4 +1,4 @@
-package cn.burning.springframework.todo;
+package cn.burning.springframework.bean.interfaces;
 
 import cn.burning.springframework.bean.interfaces.BeanFactory;
 import cn.burning.springframework.exception.BeansException;

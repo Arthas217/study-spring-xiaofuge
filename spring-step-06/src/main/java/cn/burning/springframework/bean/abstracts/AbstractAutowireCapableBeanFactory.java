@@ -8,7 +8,7 @@ import cn.burning.springframework.bean.support.PropertyValue;
 import cn.burning.springframework.bean.support.PropertyValues;
 import cn.burning.springframework.exception.BeansException;
 import cn.burning.springframework.ext.BeanPostProcessor;
-import cn.burning.springframework.todo.AutowireCapableBeanFactory;
+import cn.burning.springframework.bean.interfaces.AutowireCapableBeanFactory;
 import cn.hutool.core.bean.BeanUtil;
 
 import java.lang.reflect.Constructor;

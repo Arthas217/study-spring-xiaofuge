@@ -1,4 +1,4 @@
-package cn.burning.springframework;
+package cn.burning.springframework.bean;
 
 import cn.burning.springframework.bean.abstracts.AbstractAutowireCapableBeanFactory;
 import cn.burning.springframework.bean.interfaces.BeanDefinitionRegistry;
