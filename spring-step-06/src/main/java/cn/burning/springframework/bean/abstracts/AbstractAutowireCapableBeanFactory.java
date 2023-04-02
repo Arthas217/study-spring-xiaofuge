@@ -7,6 +7,8 @@ import cn.burning.springframework.bean.support.BeanReference;
 import cn.burning.springframework.bean.support.PropertyValue;
 import cn.burning.springframework.bean.support.PropertyValues;
 import cn.burning.springframework.exception.BeansException;
+import cn.burning.springframework.ext.BeanPostProcessor;
+import cn.burning.springframework.todo.AutowireCapableBeanFactory;
 import cn.hutool.core.bean.BeanUtil;
 
 import java.lang.reflect.Constructor;
@@ -18,7 +20,8 @@ import java.lang.reflect.Constructor;
  * Spring Bean容器的实现类，不同特性类的使用就可以非常好的隔离开类的功能职责和作用范围。
  * @Date 2022/11/17 23:37
  */
-public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory {
+public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory
+                            implements AutowireCapableBeanFactory { //add-06
 
     /**
      * 创建cglib策略属性类
@@ -48,6 +51,8 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
             bean = createBeanInstance(beanDefinition, beanName, args);
             // add-04  属性添加、给Bean填充属性
             applyPropertyValues(beanDefinition, beanName, bean);
+            // add-06  执行Bean的初始化方法和BeanPostProcessor的前置和后置处理方法
+            bean = initializeBean(beanName, bean, beanDefinition);
         } catch (Exception e) {
             throw new BeansException("create bean failed", e);
         }
@@ -104,4 +109,43 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
     }
 
 
+    private Object initializeBean(String beanName, Object bean, BeanDefinition beanDefinition) {
+        // 1. 执行 BeanPostProcessor Before 处理
+        Object wrappedBean = applyBeanPostProcessorsBeforeInitialization(bean, beanName);
+
+        // 待完成内容：invokeInitMethods(beanName, wrappedBean, beanDefinition);
+        invokeInitMethods(beanName, wrappedBean, beanDefinition);
+
+        // 2. 执行 BeanPostProcessor After 处理
+        wrappedBean = applyBeanPostProcessorsAfterInitialization(wrappedBean, beanName);
+        return wrappedBean;
+    }
+
+    private void invokeInitMethods(String beanName, Object wrappedBean, BeanDefinition beanDefinition) {
+    }
+
+
+    //分别作用于 Bean 对象执行初始化前后的额外处理。
+
+    @Override
+    public Object applyBeanPostProcessorsBeforeInitialization(Object existingBean, String beanName) throws BeansException {
+        Object result = existingBean;
+        for (BeanPostProcessor processor : getBeanPostProcessors()) {
+            Object current = processor.postProcessBeforeInitialization(result, beanName);
+            if (null == current) return result;
+            result = current;
+        }
+        return result;
+    }
+
+    @Override
+    public Object applyBeanPostProcessorsAfterInitialization(Object existingBean, String beanName) throws BeansException {
+        Object result = existingBean;
+        for (BeanPostProcessor processor : getBeanPostProcessors()) {
+            Object current = processor.postProcessAfterInitialization(result, beanName);
+            if (null == current) return result;
+            result = current;
+        }
+        return result;
+    }
 }

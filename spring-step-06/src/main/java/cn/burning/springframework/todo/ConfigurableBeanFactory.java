@@ -1,6 +1,7 @@
 package cn.burning.springframework.todo;
 
 import cn.burning.springframework.bean.interfaces.SingletonBeanRegistry;
+import cn.burning.springframework.ext.BeanPostProcessor;
 
 /**
  * @Author 会游泳的蚂蚁
@@ -12,4 +13,10 @@ public interface ConfigurableBeanFactory extends HierarchicalBeanFactory, Single
     String SCOPE_SINGLETON = "singleton";
 
     String SCOPE_PROTOTYPE = "prototype";
+
+    /**
+     * add-06
+     * @param beanPostProcessor
+     */
+    void addBeanPostProcessor(BeanPostProcessor beanPostProcessor);
 }

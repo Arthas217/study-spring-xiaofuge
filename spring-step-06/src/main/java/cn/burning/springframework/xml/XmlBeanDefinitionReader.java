@@ -24,6 +24,15 @@ import java.io.InputStream;
  */
 public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 
+
+    @Override
+    public void loadBeanDefinitions(String... locations) throws BeansException {
+        for (String location : locations) {
+            //add-06
+            loadBeanDefinitions(location);
+        }
+    }
+
     /**
      * 构造函数 + bean定义注册
      * 依赖BeanDefinitionRegistry

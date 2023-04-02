@@ -16,4 +16,11 @@ public interface ConfigurableListableBeanFactory extends ListableBeanFactory, Au
      * @throws BeansException
      */
     BeanDefinition getBeanDefinition(String beanName) throws BeansException;
+
+
+    /**
+     * add-06
+     * @throws BeansException
+     */
+    void preInstantiateSingletons() throws BeansException;
 }

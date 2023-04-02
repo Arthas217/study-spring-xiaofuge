@@ -2,6 +2,7 @@ package cn.burning.springframework.bean.interfaces;
 
 
 import cn.burning.springframework.bean.support.BeanDefinition;
+import cn.burning.springframework.exception.BeansException;
 
 /**
  * @Author 会游泳的蚂蚁
@@ -24,4 +25,25 @@ public interface BeanDefinitionRegistry {
      * @return
      */
     boolean containsBeanDefinition(String beanName);
+
+
+
+
+    /**
+     * Return the names of all beans defined in this registry.
+     * add-06
+     * 返回注册表中所有的Bean名称
+     */
+    String[] getBeanDefinitionNames();
+
+
+    /**
+     * 使用Bean名称查询BeanDefinition
+     * add-06
+     * @param beanName
+     * @return
+     * @throws BeansException
+     */
+    BeanDefinition getBeanDefinition(String beanName) throws BeansException;
+
 }

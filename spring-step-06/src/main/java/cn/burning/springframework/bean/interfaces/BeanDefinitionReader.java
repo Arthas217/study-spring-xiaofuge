@@ -47,4 +47,12 @@ public interface BeanDefinitionReader {
     void loadBeanDefinitions(Resource... resources) throws BeansException;
 
 
+    /**
+     * add-06
+     * @param locations
+     * @throws BeansException
+     */
+    void loadBeanDefinitions(String... locations) throws BeansException;
+
+
 }

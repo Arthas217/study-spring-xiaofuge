@@ -4,6 +4,8 @@ import cn.burning.springframework.bean.abstracts.AbstractAutowireCapableBeanFact
 import cn.burning.springframework.bean.interfaces.BeanDefinitionRegistry;
 import cn.burning.springframework.bean.support.BeanDefinition;
 import cn.burning.springframework.exception.BeansException;
+import cn.burning.springframework.ext.BeanPostProcessor;
+import cn.burning.springframework.todo.ConfigurableListableBeanFactory;
 import cn.burning.springframework.todo.ListableBeanFactory;
 
 import java.util.HashMap;
@@ -18,7 +20,8 @@ import java.util.Map;
  * 此类中涉及的AbstractBeanFactory抽象类定义了获取，BeanDefinitionRegistry接口定义了注册，都集中在beanDefinitionMap里
  * @Date 2022/11/17 22:41  add-05  实现ListableBeanFactory接口
  */
-public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory implements BeanDefinitionRegistry, ListableBeanFactory {
+public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory implements BeanDefinitionRegistry
+        , ConfigurableListableBeanFactory {//add-06
 
     /**
      * spring bean容器  且依赖BeanDefinition
@@ -42,7 +45,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
      * @return
      */
     @Override
-    protected BeanDefinition getBeanDefinition(String beanName) {
+    public BeanDefinition getBeanDefinition(String beanName) {
         BeanDefinition beanDefinition = beanDefinitionMap.get(beanName);
         if (beanDefinition == null) {
             throw new BeansException("No bean named " + beanName + " is defined");
@@ -91,4 +94,9 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
         return beanDefinitionMap.keySet().toArray(new String[0]);
     }
 
+
+    @Override
+    public void preInstantiateSingletons() throws BeansException {
+        beanDefinitionMap.keySet().forEach(this::getBean);
+    }
 }

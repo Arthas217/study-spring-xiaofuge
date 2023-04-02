@@ -5,10 +5,19 @@ import cn.burning.springframework.exception.BeansException;
 
 /**
  * @Author 会游泳的蚂蚁
- * @Description: Bean工厂
+ * @Description: Bean工厂(1、bean名称 2、bean名称及入参 3、bean名称及类型)
  * @Date 2022/11/17 17:29
  */
 public interface BeanFactory {
+
+    /**
+     * add-06
+     * 返回 Bean 的实例对象
+     * @param name 要检索的bean的名称
+     * @return 实例化的 Bean 对象
+     * @throws BeansException 不能获取 Bean 对象，则抛出异常
+     */
+    Object getBean(String name) throws BeansException;
 
     /**
      * 构造函数的入参信息传递进去
