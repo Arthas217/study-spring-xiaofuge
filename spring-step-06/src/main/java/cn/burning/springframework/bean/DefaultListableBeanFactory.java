@@ -21,7 +21,7 @@ import java.util.Map;
  * @Date 2022/11/17 22:41  add-05  实现ListableBeanFactory接口
  */
 public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory implements BeanDefinitionRegistry
-        , ConfigurableListableBeanFactory {//add-06
+        , ConfigurableListableBeanFactory { //add-06
 
     /**
      * spring bean容器  且依赖BeanDefinition
