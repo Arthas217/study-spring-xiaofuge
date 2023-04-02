@@ -6,9 +6,8 @@ import cn.burning.springframework.exception.BeansException;
 import java.util.Map;
 
 /**
- * @Author 会游泳的蚂蚁 add-05
- * @Description: 扩展Bean工厂接口的接口(Spring源码中还有其他扩展方法)
- * @Date 2022/11/24 10:14
+ *  add-05
+ *  扩展Bean工厂接口的接口(Spring源码中还有其他扩展方法)
  */
 public interface ListableBeanFactory extends BeanFactory {
 
